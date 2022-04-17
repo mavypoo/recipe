@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My amazing site</title>
+</head>
+<body>
+    <h1>Welcome to the recipes!</h1>
+    <h2>Register</h2>
+    <form  action="/register" method="POST">
+        {% with messages = get_flashed_messages(category_filter=["register"]) %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div>
+            <label>First name:</label>
+            <input type="text" name="first_name">
+        </div>
+        <div>
+            <label>Last name:</label>
+            <input type="text" name="last_name">
+        </div>
+        <div>
+            <label>email:</label>
+            <input type="email" name="email">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="password">
+        </div>
+        <div>
+            <label>Confirm password:</label>
+            <input type="password" name="confirm_password">
+        </div>
+        <button> Register </button>
+    </form> 
+    <h1> Log in:</h1>
+    <form  action="/login" method="POST">
+        {% with messages = get_flashed_messages(category_filter=["login"]) %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div>
+            <label>email:</label>
+            <input type="email" name="email">
+        </div>
+        <div>
+            <label>Password:</label>
+            <input type="password" name="password">
+        </div>
+        <button> Log in  </button>
+    </form> 
+</body>
+</html>
